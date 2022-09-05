@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from '@app/app.component';
 import { AppCoreModule } from '@core/core.module';
 
 @NgModule({
