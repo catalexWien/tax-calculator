@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Demo
 
-A demo version can be found at `http://alexandrucatalin.ro/tax-calculator/`.
+A demo version can be found at [tax-calculator](http://alexandrucatalin.ro/tax-calculator/).
 
 ## Development server
 
