@@ -1,0 +1,89 @@
+<div class="right-side">
+  <mat-card class="example-card" fxLayout="column" fxFlexFill fxLayoutAlign="start center" fxFlex="70%">
+    <mat-card-subtitle>Austria</mat-card-subtitle>
+    <form #vatForm="ngForm">
+    <mat-card-content>
+      <div fxLayout="column">
+        <mat-form-field appearance="standard" ngDefaultControl>
+          <mat-label>VAT rate</mat-label>
+          <mat-select
+            [(ngModel)]="formInputs.vatRate"
+            #vatRate
+            name="vatRate"
+            required
+          >
+            <mat-option
+              *ngFor="let rate of valuesOfRates"
+              [value]="rate"
+              (click)="onInputChange('vatRate')"
+            >
+              {{rate}} %
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="error-message-container" fxLayout="column" fxLayoutAlign="center center">
+          <div *ngIf="noVatRateError" class="error-message-text">Please select a VAT rate</div>
+          <div *ngIf="noNumberError" class="error-message-text">Please enter a number</div>
+          <div *ngIf="zeroNumberError" class="error-message-text">Please fill a field<br>with a number</div>
+          <div *ngIf="!noVatRateError && !noNumberError">&nbsp;</div>
+        </div>
+        <mat-form-field appearance="standard">
+          <mat-label>Price without VAT</mat-label>
+          <input
+            matInput
+            type="text"
+            #priceWithoutVat="ngModel"
+            [(ngModel)]="formInputs.priceWithoutVat"
+            name="priceWithoutVat"
+            maxlength="9"
+            placeholder="0"
+            [disabled]="noVatRateError"
+            (ngModelChange)="onInputChange('priceWithoutVat')"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Value-Added Tax</mat-label>
+          <input
+            matInput
+            type="text"
+            #vat="ngModel"
+            [(ngModel)]="formInputs.vat"
+            name="vat"
+            maxlength="9"
+            placeholder="0"
+            [disabled]="noVatRateError"
+            (ngModelChange)="onInputChange('vat')"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Price with VAT</mat-label>
+          <input
+            matInput
+            type="text"
+            #priceWithVat="ngModel"
+            [(ngModel)]="formInputs.priceWithVat"
+            name="priceWithVat"
+            maxlength="9"
+            placeholder="0"
+            [disabled]="noVatRateError"
+            (ngModelChange)="onInputChange('priceWithVat')"
+          >
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions fxLayoutAlign="end end">
+      <button
+        mat-stroked-button
+        color="warn"
+        type="button"
+        class="btn btn-default"
+        [disabled]="noVatRateError"
+        (click)="onResetForm()"
+      >
+        Reset
+      </button>
+    </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

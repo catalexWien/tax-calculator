@@ -1,0 +1,27 @@
+.left-side-wrap {
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(0 0 30px #2995a1);
+}
+.left-side {
+  height: 100%;
+  width: 100%;
+  padding-left: 10%;
+  color: #fff;
+  box-shadow: 15px 0 10px #888888;
+  text-shadow: 3px 3px 10px #173953;
+  background-color: #3178b0;
+  clip-path: polygon(0% 0, 90% 0%, 70% 100%, 0 100%);
+}
+.left-side > h1 {
+  font-size: 3vw;
+}
+@media only screen and (max-width: 626px) {
+  .mat-grid-left-tile {
+    width: 0;
+    display: none;
+  }
+  .mat-grid-right-tile {
+    width: 100%;
+  }
+}
